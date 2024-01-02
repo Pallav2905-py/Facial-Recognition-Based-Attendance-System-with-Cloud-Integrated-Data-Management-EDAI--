@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const{getAttendance,getAllAttendance} = require("../controllers/products")
+const { fetchAllAttendence, fetchForMember } = require("../controllers/attendence")
 
-router.route("/").get(getAttendance);
-router.route("/testing").get(getAllAttendance);
+router.route("/").get(fetchAllAttendence);
+router.route("/member").get(fetchForMember);
+router.route("/").post(fetchAllAttendence);
 
 module.exports = router;

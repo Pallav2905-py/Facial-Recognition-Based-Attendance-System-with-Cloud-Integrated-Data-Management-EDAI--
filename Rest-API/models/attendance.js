@@ -1,11 +1,12 @@
+const { Decimal128 } = require('mongodb');
 const mongoose = require('mongoose')
 
 const attendanceSchema = new mongoose.Schema({
     date: String,
-    time:Float32Array,
+    time: Array,
     email: String,
 })
 
-const Attendance = new mongoose.model('Attendance', attendanceSchema);
+const Attendence = new mongoose.model('Attendance', attendanceSchema);
 
-module.exports = Attendance;
+module.exports = Attendence;
