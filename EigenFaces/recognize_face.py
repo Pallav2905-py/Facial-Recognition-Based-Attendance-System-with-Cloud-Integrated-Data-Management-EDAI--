@@ -29,6 +29,6 @@ def recognize_face(test_img,face_recognizer,subjects):
             draw_rectangle(img, rect)
             # draw name of predicted person
             draw_text(img, label_text, rect[0], rect[1] - 5)
-        return img
+        return img, None
     else:
-        return test_img
+        return test_img, label

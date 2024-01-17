@@ -17,18 +17,25 @@ face_recognizer.read("main")
 vid = cv2.VideoCapture(0) 
 while(True): 
 
+    names = []
     ret, frame = vid.read()    
     # frame = cv2.imread("Test-Data/Test_Image1.jpg")
     # frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     # cv2.imshow('frame', frame) 
     
-    image = recognize_face(frame,face_recognizer,subjects)
+    image, label= recognize_face(frame,face_recognizer,subjects)
     # if image.all() != None:
         # im = cv2.imread(image)
-
+    
     if image.all() != None:
         cv2.imshow('image',image)
+        
+    if label != None:
+        if label not in names:
+            names.append(label)
 
     if cv2.waitKey(1) & 0xFF == ord('q'): 
         break
+    
 
+print(names)
