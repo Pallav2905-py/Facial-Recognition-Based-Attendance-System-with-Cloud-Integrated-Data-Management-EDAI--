@@ -21,16 +21,16 @@ label {
   background: #fbfbfb;
   border-radius: 8px;
   box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-  height: 410px;
-  margin: 6rem auto 8.1rem auto;
-  width: 329px;
+  height: auto;
+  margin: 2rem 10% 2rem 10%;
+  width: auto;
 }
 #card-content {
-  padding: 12px 44px;
+    padding: 12px 44px;
+    height: 12rem;
 }
 #card-title {
-  font-family: "Raleway Thin", sans-serif;
-  letter-spacing: 4px;
+
   padding-bottom: 23px;
   padding-top: 13px;
   text-align: center;
@@ -82,16 +82,18 @@ label {
   width: 89px;
 }
 #attendence-card{
-  background: #fbfbfb;
-  border-radius: 8px;
-  box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-  height: auto;
-  margin: 6rem auto 8.1rem auto;
-  width: 329px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    background: #fbfbfb;
+    border-radius: 8px;
+    box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
+    height: auto;
+    padding: 20px;
+    margin: auto 10% 1rem 10%;
+    width: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
+
 
 #attendence-card .right{
   margin: 0px;
@@ -100,4 +102,67 @@ label {
   flex-direction: column;
   justify-content: space-between;
   text-align: center;
+  font-weight: 200;
+}
+
+
+.loader{
+  display: flex;
+  justify-content: center;
+}
+.container {
+  --uib-size: 45px;
+  --uib-color: black;
+  --uib-speed: 1.75s;
+  --uib-bg-opacity: .1;
+  height: 20%;
+  width: 20%;
+  transform-origin: center;
+  overflow: visible;
+}
+
+
+.car {
+  stroke: var(--uib-color);
+  stroke-dasharray: 100;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation:
+    travel var(--uib-speed) ease-in-out infinite,
+    fade var(--uib-speed) ease-out infinite;
+  will-change: stroke-dasharray, stroke-dashoffset;
+  transition: stroke 0.5s ease;
+}
+
+.track {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: var(--uib-color);
+  opacity: var(--uib-bg-opacity);
+}
+
+@keyframes travel {
+  0% {
+    stroke-dashoffset: 100;
+  }
+
+  75% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+
+  20%,
+  55% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
 }

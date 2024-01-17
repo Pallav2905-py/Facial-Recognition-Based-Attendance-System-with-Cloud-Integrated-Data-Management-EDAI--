@@ -14,12 +14,12 @@ def recognize_face(test_img,face_recognizer,subjects):
     if face.all != None:
         label, confidence = face_recognizer.predict(cv2.resize(face,(1600,1600)))
 
-        print(label)
+        print("This is label from recognize_face ${label}")
         print(confidence)
         # get name of respective label returned by face recognizer
     # check if the prediction confidence is within a certain threshold
         # assuming 0 means a perfect match, you can adjust this threshold as needed
-        if confidence < 70000:  
+        if confidence < 80000:  
             # ge name of the recognized label
             label_text = subjects[label]
         else:
@@ -29,6 +29,6 @@ def recognize_face(test_img,face_recognizer,subjects):
             draw_rectangle(img, rect)
             # draw name of predicted person
             draw_text(img, label_text, rect[0], rect[1] - 5)
-        return img, None
+        return img, label_text
     else:
-        return test_img, label
+        return test_img, label_text
